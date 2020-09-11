@@ -1,17 +1,20 @@
 package com.slava_bull.cft_shift.rest;
 
+import com.slava_bull.cft_shift.exception.BadRequestException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 public interface CommonController<T> {
 
     @PostMapping
-    ResponseEntity<T> save(@RequestBody T item);
+    ResponseEntity<T> save(@RequestBody @Valid T item, BindingResult bindingResult) throws BadRequestException;
 
     @PutMapping("/{id}")
-    ResponseEntity<T> edit(@PathVariable("id") long id, @RequestBody T item);
+    ResponseEntity<T> edit(@PathVariable("id") long id, @RequestBody @Valid T item, BindingResult bindingResult) throws BadRequestException;
 
     @GetMapping("/list")
     ResponseEntity<List<T>> findAll();
