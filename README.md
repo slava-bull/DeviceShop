@@ -5,6 +5,6 @@
 ```sh
 $ git clone https://github.com/slava-bull/DeviceShop.git
 $ cd DeviceShop
-$ gradlew build
+$ ./gradlew build
 $ java -jar build/libs/app.jar
 ```
