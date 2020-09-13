@@ -30,6 +30,10 @@ dependencies {
     }
 }
 
+bootJar{
+    archiveFileName  = "app.jar"
+}
+
 test {
     useJUnitPlatform()
 }
